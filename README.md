@@ -1,5 +1,6 @@
-# first-wp
+# Tonda Pizzaria
 
+> Site profissional desenvolvido para uma pizzaria utilizando o WordPress.
 
 ## Plugins utilizados
 
