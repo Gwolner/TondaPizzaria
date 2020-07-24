@@ -98,6 +98,26 @@ Microthemer has built-in documentation! Just click the help icon (top right of t
 
 == Changelog ==
 
+= 6.2.0.9 (July 22nd 2020) =
+
+# Bugs fixed
+* Changing a selector's code via the selectors menu could result in the old code being appended to the new code if the selector had a non-GUI supported style.
+
+= 6.2.0.8 (July 21st 2020) =
+
+# Bugs fixed
+* Conflict with Agency tools where MT could change order its stylesheet loaded when O2 was active.
+* Importing CSS from stylesheet did not set the blue dots correctly to signal which selectors have styles.
+* The CSS stylesheet import review stats did not list non-GUI supported styles (e.g. CSS variables or border-image-slice).
+* Issue when importing CSS from a stylesheet when Sass support is enabled: Uncaught ReferenceError: value is not defined.
+* Issue clearing a whole folder when the code editor is docked left: Cannot read property 'find' of undefined.
+* Issue syncing width between editor and UI if display property was set to 'grid'.
+
+= 6.2.0.7 (July 9th 2020) =
+
+# Bugs fixed
+* Custom grid item rules could sync with the UI when they shouldn't.
+
 = 6.2.0.6 (July 2nd 2020) =
 
 # Enhancement

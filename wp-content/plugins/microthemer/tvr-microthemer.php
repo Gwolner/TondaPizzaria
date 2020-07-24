@@ -5,7 +5,7 @@ Plugin URI: https://themeover.com/microthemer
 Text Domain: microthemer
 Domain Path: /languages
 Description: Microthemer is a feature-rich visual design plugin for customizing the appearance of ANY WordPress Theme or Plugin Content (e.g. posts, pages, contact forms, headers, footers, sidebars) down to the smallest detail. For CSS coders, Microthemer is a proficiency tool that allows them to rapidly restyle a WordPress theme or plugin. For non-coders, Microthemer's intuitive point and click editing opens the door to advanced theme and plugin customization.
-Version: 6.2.0.6
+Version: 6.2.0.9
 Author: Themeover
 Author URI: https://themeover.com
 */
@@ -258,7 +258,16 @@ if (!class_exists('tvr_common')) {
 					$wp_styles->add_data($handle, $data_key, $data_val);
 				}
 
-				$wp_styles->do_items();
+				// allow CSS to load in footer if O2 is active so MT comes after O2 even when O2 active without O2
+                // Note this didn't work on my local install, but did on a customer who reported issue with Agency Tools
+                // so better to use a more deliberate action hook e.g. wp_footer
+                // Ideally, O2 would enqueue a placeholder stylesheet and replace rather than append to head
+				/*if ( !defined( 'SHOW_CT_BUILDER' ) ) {
+					$wp_styles->do_items($handle);
+				}*/
+
+				// (feels a bit risky, but can add if MT loading before O2 when active by itself causes issue for people)
+                $wp_styles->do_items($handle);
 			}
 
 			else {
@@ -301,7 +310,7 @@ if ( is_admin() ) {
 		// define
 		class tvr_microthemer_admin {
 
-			var $version = '6.2.0.6';
+			var $version = '6.2.0.9';
 			var $db_chg_in_ver = '6.0.6.5';
 			var $locale = '';
 			var $time = 0;
@@ -11705,7 +11714,7 @@ if (!is_admin()) {
 			var $preferencesName = 'preferences_themer_loader';
 			// @var array $preferences Stores the ui options for this plugin
 			var $preferences = array();
-			var $version = '6.2.0.6';
+			var $version = '6.2.0.9';
 			var $microthemeruipage = 'tvr-microthemer.php';
 			var $file_stub = '';
 			var $min_stub = '';
