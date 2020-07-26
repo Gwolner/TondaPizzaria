@@ -1,0 +1,20 @@
+/*  MICROTHEMER STYLES  */
+
+
+/*= Conteúdo ================= */
+
+/** Conteúdo >> Cardapiohome titulo do cardápio **/
+.cardapiohome .uagb-rm__title-wrap {
+	width: 270px !important;
+}
+
+/** Conteúdo >> Cardapiohome preço menu **/
+.cardapiohome .uagb-rm__price {
+	width: 75px !important;
+}
+
+/** Conteúdo >> jacusa **/
+.jacusa .uagb-block-4ff24e0d .uagb-inline-editing {
+	font-family: "Arial Black" !important;
+}
+
